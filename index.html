@@ -1,14 +1,95 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Movie List</title>
     <link rel="stylesheet" href="./mystyle.css">
-    <link rel="stylesheet" href="./another.css">
 </head>
 <body>
-    <h1>I have updated the page</h1>
-    <h2>a new section in index.html</h2>
-    <h1 onclick="displayMessage();">Click Me!</h1>
-    <div id="message-box"></div>
+    <div class="container">
+        <div class="section">
+            <h1>Movie List</h1>
+            <div class="controls">
+                <form id="form-list-control">
+                    <input type="text" placeholder="movie name..." name="search-string">
+                    <button type="button" name="btn-search" onclick="searchClick();">Search</button>
+                    <button type="button" name="btn-a2z" onclick="a2zClick();">a-z</button>
+                    <button type="button" name="btn-z2a" onclick="z2aClick();">z-a</button>
+                    <button type="button" name="btn-z2a" onclick="showAddForm();">Add</button>
+                </form>
+            </div>
+
+            <div class="list" id="list">
+                <div class="row">
+                    <span>1.</span>
+                    <span>The Shawshank Redemption</span>
+                    <span>(1994)</span>
+                    <span>
+                        <form>
+                            <input type="hidden" name="index" value="1">
+                            <button type="button" name="submit" onclick="deleteClickV2(this);">Delete</button>
+                        </form>
+                        <form>
+                            <input type="hidden" name="index" value="1">
+                            <button type="button" name="submit" onclick="showUpdateForm(this);">Update</button>
+                        </form>
+                    </span>
+                </div>
+                <div class="row">2. The Godfather (1972)</div>
+                <div class="row">3. The Godfather: Part II (1974)</div>
+                <div class="row">4. The Dark Knight (2008)</div>
+                <div class="row">5. 12 Angry Men (1957)</div>
+                <div class="row">6. Schindler's List (1993)</div>
+                <div class="row">7. The Lord of the Rings: The Return of the King (2003)</div>
+                <div class="row">8. Pulp Fiction (1994)</div>
+            </div>
+        </div> <!-- div.section -->
+
+        <div class="section pop-up hidden" id="pop-up-add">
+            <div class="pop-up-content">
+                <h1>Add a movie</h1>
+                <form id="form-add">
+                    <label>Title: </label>
+                    <input type="text" placeholder="title..." name="title">
+                    <br>
+                    <label>Year: </label>
+                    <input type="text" placeholder="year..." name="year">
+                    <br>
+                    <button type="button" name="submit" onclick="addClick();">Add</button>
+                </form>
+            </div>
+        </div> <!-- div.section -->
+
+        <div class="section pop-up hidden" id="pop-up-update">
+            <div class="pop-up-content">
+                <h1>Update a movie</h1>
+                <form id="form-update">
+                    <label>Index: </label>
+                    <input type="text" placeholder="index..." name="index">
+                    <br>
+                    <label>Title: </label>
+                    <input type="text" placeholder="title..." name="title">
+                    <br>
+                    <label>Year: </label>
+                    <input type="text" placeholder="year..." name="year">
+                    <br>
+                    <button type="button" name="submit" onclick="updateClick();">Update</button>
+                </form>
+            </div>
+        </div> <!-- div.section -->
+
+        <!--
+        <div class="section">
+            <h1>Delete a movie</h1>
+            <form id="form-delete">
+                <label>Index: </label>
+                <input type="text" placeholder="index..." name="index">
+                <br>
+                <button type="button" name="submit" onclick="deleteClick();">Delete</button>
+            </form>
+        </div> 
+        -->
+    </div><!-- div.container -->
+    <script src="./movie-list.js"></script>
     <script src="./myscript.js"></script>
 </body>
 </html>
